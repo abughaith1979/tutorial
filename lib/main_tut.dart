@@ -23,40 +23,77 @@ class _nameState extends State<NewMain> {
         children: [
           buildNav(),
           scrollhor(),
+          filterView(),
         ],
       ),
     );
   }
 
-  Widget scrollhor() {
-    return Container(
-      margin: const EdgeInsets.symmetric(vertical: 20),
-      height: 200,
-      child: ListView(
-        // This next line does the trick.
-        scrollDirection: Axis.horizontal,
-        children: <Widget>[
-          Container(
-            width: 160,
-            color: Colors.red,
+  Widget filterView() {
+    return Padding(
+      padding: const EdgeInsets.only(left: 25, right: 25),
+      child: Row(
+        children: [
+          const Text(
+            "Pizza",
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
           ),
-          Container(
-            width: 160,
-            color: Colors.blue,
-          ),
-          Container(
-            width: 160,
-            color: Colors.green,
-          ),
-          Container(
-            width: 160,
-            color: Colors.yellow,
-          ),
-          Container(
-            width: 160,
-            color: Colors.orange,
+          Expanded(child: Container()),
+          const Row(
+            children: [
+              Text(
+                "Max Price",
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
+              ),
+              Icon(Icons.arrow_drop_down_rounded),
+            ],
           ),
         ],
+      ),
+    );
+  }
+
+  Widget scrollitem(Color m) {
+    return Container(
+      width: 50,
+      color: m,
+    );
+  }
+
+  Widget scrollhor() {
+    return Container(
+      margin: const EdgeInsets.all(10),
+      height: 80,
+      decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: const BorderRadius.all(Radius.circular(30)),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.5),
+              spreadRadius: 5,
+              blurRadius: 7,
+              offset: const Offset(0, 3), // changes position of shadow
+            ),
+          ]),
+      child: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: ListView(
+          // This next line does the trick.
+          scrollDirection: Axis.horizontal,
+          children: <Widget>[
+            const Icon(
+              Icons.arrow_left_rounded,
+              size: 40,
+            ),
+            scrollitem(Colors.red),
+            scrollitem(Colors.blue),
+            scrollitem(Colors.green),
+            scrollitem(Colors.yellow),
+            scrollitem(Colors.orange),
+            scrollitem(Colors.black),
+            scrollitem(Colors.blueGrey),
+          ],
+        ),
       ),
     );
   }
