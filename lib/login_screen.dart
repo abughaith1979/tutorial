@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:police/main_screen.dart';
+import 'package:police/main_tut.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -132,7 +133,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       } else {
                         Navigator.of(context).pushAndRemoveUntil(
                             MaterialPageRoute(builder: (ctx) {
-                          return const MainScreen();
+                          return const NewMain();
                         }), (route) => false);
                         // Navigator.of(context)
                         //     .push(MaterialPageRoute(builder: (ctx) {
