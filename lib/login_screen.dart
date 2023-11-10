@@ -36,7 +36,7 @@ class _LoginScreenState extends State<LoginScreen> {
               logo(),
               const SizedBox(height: 8),
               const Text(
-                "Police App",
+                "No App",
                 style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
               ),
               Padding(
@@ -45,13 +45,15 @@ class _LoginScreenState extends State<LoginScreen> {
                   children: [
                     alLawaa7(
                       color: colorChooce ? Colors.red : Colors.blue,
-                      borderRadios:
-                          const BorderRadius.only(topLeft: Radius.circular(25), bottomLeft: Radius.circular(25)),
+                      borderRadios: const BorderRadius.only(
+                          topLeft: Radius.circular(25),
+                          bottomLeft: Radius.circular(25)),
                     ),
                     alLawaa7(
                       color: colorChooce ? Colors.blue : Colors.red,
-                      borderRadios:
-                          const BorderRadius.only(topRight: Radius.circular(25), bottomRight: Radius.circular(25)),
+                      borderRadios: const BorderRadius.only(
+                          topRight: Radius.circular(25),
+                          bottomRight: Radius.circular(25)),
                     ),
                   ],
                 ),
@@ -89,7 +91,9 @@ class _LoginScreenState extends State<LoginScreen> {
                       child: Row(
                         children: [
                           IconButton(
-                            icon: Icon(showPassword ? Icons.remove_red_eye : Icons.visibility_off),
+                            icon: Icon(showPassword
+                                ? Icons.remove_red_eye
+                                : Icons.visibility_off),
                             onPressed: () {
                               showPassword = !showPassword;
                               setState(() {});
@@ -119,12 +123,15 @@ class _LoginScreenState extends State<LoginScreen> {
                         content: Text("please enter your password"),
                       ));
                     } else {
-                      if (emailController.text != "abed" || passwordController.text != "123") {
-                        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                      if (emailController.text != "abed" ||
+                          passwordController.text != "123") {
+                        ScaffoldMessenger.of(context)
+                            .showSnackBar(const SnackBar(
                           content: Text("Email or password not valid"),
                         ));
                       } else {
-                        Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (ctx) {
+                        Navigator.of(context).pushAndRemoveUntil(
+                            MaterialPageRoute(builder: (ctx) {
                           return const MainScreen();
                         }), (route) => false);
                         // Navigator.of(context)
@@ -142,7 +149,8 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  Widget alLawaa7({required Color color, required BorderRadiusGeometry borderRadios}) {
+  Widget alLawaa7(
+      {required Color color, required BorderRadiusGeometry borderRadios}) {
     return Expanded(
       child: Container(
         height: 50,
